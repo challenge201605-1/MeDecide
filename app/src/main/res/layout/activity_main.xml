@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fuku">
+
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:text="Me decide"
+        android:id="@+id/main_title"
+        android:textColor="#ffffff"
+        android:layout_marginTop="176dp"
+        android:textSize="50dp"/>
+
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:text="Medecideは普段何を着ていけばいいか、 迷う乙女の味方。"
+        android:id="@+id/main_subtitle"
+        android:textColor="#ffffff"
+        android:layout_marginTop="176dp"
+        android:gravity="center_horizontal"/>
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
