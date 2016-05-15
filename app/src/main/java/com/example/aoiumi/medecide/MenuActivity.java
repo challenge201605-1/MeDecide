@@ -1,7 +1,8 @@
 package com.example.aoiumi.medecide;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -10,6 +11,15 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        ImageView img = (ImageView) findViewById(R.id.menu_camera);
+//        img.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent
 
+        
+
+//            }
+//        })
     }
 }

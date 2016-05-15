@@ -17,11 +17,30 @@
     <TextView
         android:layout_width="400dp"
         android:layout_height="100dp"
-        android:text="Medecideは普段何を着ていけばいいか、 迷う乙女の味方。"
+        android:text="服選びに「迷う乙女」の味方のアプリ"
         android:id="@+id/main_subtitle"
         android:textColor="#ffffff"
         android:gravity="center_horizontal"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_result_btn"
+            android:text="左ボタン"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_main_btn"
+            android:text="右ボタン"/>
+    </LinearLayout>
 
 </LinearLayout>
 

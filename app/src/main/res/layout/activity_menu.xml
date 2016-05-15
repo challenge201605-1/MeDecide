@@ -39,7 +39,12 @@
     <ImageView
         android:layout_width="199dp"
         android:layout_height="181dp"
-        android:src="@drawable/camera"/>
+        android:src="@drawable/camera"
+        android:id="@+id/menu_camera"
+        />
+
+
+
 
 
 </LinearLayout>
