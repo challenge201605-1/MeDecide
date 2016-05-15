@@ -12,7 +12,7 @@
         android:id="@+id/main_title"
         android:textColor="#ffffff"
         android:layout_marginTop="176dp"
-        android:textSize="50dp"/>
+        android:textSize="50dp" />
 
     <TextView
         android:layout_width="400dp"
