@@ -20,7 +20,6 @@
         android:text="Medecideは普段何を着ていけばいいか、 迷う乙女の味方。"
         android:id="@+id/main_subtitle"
         android:textColor="#ffffff"
-        android:layout_marginTop="176dp"
         android:gravity="center_horizontal"/>
 
 
