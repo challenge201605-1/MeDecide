@@ -96,6 +96,8 @@ public class CameraActivity extends Activity {
         @Override
         public void onPictureTaken(byte[] data, Camera camera) {
             try {
+                ImageList imageList= new ImageList(new byte[]{00101});
+                imageList.save();
                 File dir = new File(
                         Environment.getExternalStorageDirectory(), "Camera");
                 if(!dir.exists()) {
