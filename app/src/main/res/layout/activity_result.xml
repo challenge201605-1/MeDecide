@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="181dp"
         android:src="@drawable/code1"
-        android:layout_weight="0.86" />
+        android:layout_weight="0.86"
+        android:id="@+id/imagefuku"/>
 
 
     <TextView

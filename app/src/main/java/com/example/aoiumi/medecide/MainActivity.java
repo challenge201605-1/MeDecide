@@ -13,14 +13,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        ImageList imageList= new ImageList(new byte[]{00101});
-//        imageList.save();
-//
-//        List<ImageList> imageLists = ImageList.listAll(ImageList.class);
-//        for (ImageList data : imageLists) {
-//            Log.d("test", data.toString());
-//        }
-
         Button resultBtn = (Button) findViewById(R.id.main_result_btn);
         Button menuBtn =(Button) findViewById(R.id.main_menu_btn);
 

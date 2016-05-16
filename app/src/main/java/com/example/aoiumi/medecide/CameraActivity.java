@@ -14,12 +14,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import java.util.List;
 
-public class CameraActivity extends Activity implements View.OnClickListener {
+public class CameraActivity extends Activity {
 
     SurfaceView sv;
     SurfaceHolder sh;
@@ -46,38 +44,10 @@ public class CameraActivity extends Activity implements View.OnClickListener {
         captureBtn.setLayoutParams(new LayoutParams(200, 150));
         captureBtn.setOnClickListener(new TakePictureClickListener());
 
-        // 戻るボタンを定義
-        Button backBtn = new Button(this);
-        backBtn.setText("戻る");
-        backBtn.setLayoutParams(new LayoutParams(200, 150));
-        backBtn.setOnClickListener(this);
-
-
-        // ボタン配置用のLinearLayoutを定義
-        LinearLayout btnLayout = new LinearLayout(this);
-        btnLayout.setOrientation(LinearLayout.VERTICAL);
-        btnLayout.addView(captureBtn);
-        btnLayout.addView(backBtn);
-
         // 親ビューに追加
         fl.addView(sv);
-        fl.addView(btnLayout);
+        fl.addView(captureBtn);
     }
-
-    @Override
-    public void onClick(View view) {
-        // 戻るボタンの処理をここに書く
-        switch (view.getId()) {
-
-            case R.id.camera_back_btn:
-
-                Intent intentMenu = new Intent(this,MenuActivity.class);
-
-                startActivity(intentMenu);
-                break;
-        }
-    }
-
 
     class SurfaceHolderCallback implements SurfaceHolder.Callback {
         @Override
@@ -129,13 +99,12 @@ public class CameraActivity extends Activity implements View.OnClickListener {
         @Override
         public void onPictureTaken(byte[] data, Camera camera) {
             try {
-                ImageList imageList= new ImageList(data);
+                ImageList imageList = new ImageList(data);
                 imageList.save();
 
-
-                Toast.makeText(getApplicationContext(),
-                        "写真を保存しました", Toast.LENGTH_LONG).show();
-                cam.startPreview();
+                // メニュー画面に戻る
+                Intent intentMenu = new Intent(getApplicationContext(), MenuActivity.class);
+                startActivity(intentMenu);
             } catch (Exception e) { }
         }
     }
