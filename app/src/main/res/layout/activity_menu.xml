@@ -18,21 +18,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1.ーーーーーーーーーーーーー"
+        android:text="1.迷っているコーディネートを用意してください。"
 
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2.ーーーーーーーーーーーーー"
+        android:text="2.CAMERAで撮影してください。"
+
+
 
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3.ーーーーーーーーーーーーー"
+        android:text="3.CLOSETに今日のコーディネートが表示されます。"
+
+
 
         />
 

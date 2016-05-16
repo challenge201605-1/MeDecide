@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:text="Me decide"
+        android:text="Me décide"
         android:id="@+id/main_title"
         android:textColor="#ffffff"
         android:layout_marginTop="176dp"
@@ -32,13 +32,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/main_result_btn"
-            android:text="左ボタン"/>
+            android:text="closet"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/main_menu_btn"
-            android:text="右ボタン"/>
+            android:text="camera"/>
     </LinearLayout>
 
 </LinearLayout>

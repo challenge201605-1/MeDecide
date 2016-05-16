@@ -1,6 +1,7 @@
 package com.example.aoiumi.medecide;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.Size;
@@ -13,11 +14,12 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.List;
 
-public class CameraActivity extends Activity {
+public class CameraActivity extends Activity implements View.OnClickListener {
 
     SurfaceView sv;
     SurfaceHolder sh;
@@ -29,21 +31,53 @@ public class CameraActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+        // FrameLayout(親ビュー)を新規作成
         FrameLayout fl = new FrameLayout(this);
         setContentView(fl);
 
+        // カメラ表示用のビューを定義
         sv = new SurfaceView(this);
         sh = sv.getHolder();
         sh.addCallback(new SurfaceHolderCallback());
 
-        Button btn = new Button(this);
-        btn.setText("撮影");
-        btn.setLayoutParams(new LayoutParams(200, 150));
-        btn.setOnClickListener(new TakePictureClickListener());
+        // 撮影ボタンを定義
+        Button captureBtn = new Button(this);
+        captureBtn.setText("撮影");
+        captureBtn.setLayoutParams(new LayoutParams(200, 150));
+        captureBtn.setOnClickListener(new TakePictureClickListener());
 
+        // 戻るボタンを定義
+        Button backBtn = new Button(this);
+        backBtn.setText("戻る");
+        backBtn.setLayoutParams(new LayoutParams(200, 150));
+        backBtn.setOnClickListener(this);
+
+
+        // ボタン配置用のLinearLayoutを定義
+        LinearLayout btnLayout = new LinearLayout(this);
+        btnLayout.setOrientation(LinearLayout.VERTICAL);
+        btnLayout.addView(captureBtn);
+        btnLayout.addView(backBtn);
+
+        // 親ビューに追加
         fl.addView(sv);
-        fl.addView(btn);
+        fl.addView(btnLayout);
     }
+
+    @Override
+    public void onClick(View view) {
+        // 戻るボタンの処理をここに書く
+        switch (view.getId()) {
+
+            case R.id.camera_back_btn:
+
+                Intent intentMenu = new Intent(this,MenuActivity.class);
+
+                startActivity(intentMenu);
+                break;
+        }
+    }
+
 
     class SurfaceHolderCallback implements SurfaceHolder.Callback {
         @Override
@@ -102,9 +136,6 @@ public class CameraActivity extends Activity {
                 Toast.makeText(getApplicationContext(),
                         "写真を保存しました", Toast.LENGTH_LONG).show();
                 cam.startPreview();
-
-
-
             } catch (Exception e) { }
         }
     }
