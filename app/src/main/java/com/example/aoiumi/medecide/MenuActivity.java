@@ -1,75 +1,35 @@
 package com.example.aoiumi.medecide;
 
-import android.app.Activity;
-import android.hardware.Camera;
-import android.hardware.Camera.Parameters;
-import android.hardware.Camera.Size;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
-import android.widget.FrameLayout.LayoutParams;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageButton;
 
-import java.util.List;
-
-public class MenuActivity extends Activity {
-
-    SurfaceView sv;
-    SurfaceHolder sh;
-    Camera cam;
+public class MenuActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_menu);
 
-        FrameLayout fl = new FrameLayout(this);
-        setContentView(fl);
+        ImageButton cameraBtn = (ImageButton) findViewById(R.id.menu_camera);
 
-        sv = new SurfaceView(this);
-        sh = sv.getHolder();
-        sh.addCallback(new SurfaceHolderCallback());
+        cameraBtn.setOnClickListener(this);
 
-        fl.addView(sv);
     }
 
-    class SurfaceHolderCallback implements SurfaceHolder.Callback {
-        @Override
-        public void surfaceCreated(SurfaceHolder holder) {
-            cam = Camera.open();
-            Parameters param = cam.getParameters();
-            List<Size> ss = param.getSupportedPictureSizes();
-            Size pictSize = ss.get(0);
+    @Override
+    public void onClick(View view) {
 
-            param.setPictureSize(pictSize.width, pictSize.height);
-            cam.setParameters(param);
+        switch (view.getId()) {
+
+            case R.id.menu_camera:
+                Intent intentCamera = new Intent(this,CameraActivity.class);
+
+                startActivity(intentCamera);
+                break;
         }
-        @Override
-        public void surfaceChanged(SurfaceHolder holder, int f, int w, int h) {
-            try {
-                cam.setDisplayOrientation(0);
-                cam.setPreviewDisplay(sv.getHolder());
 
-                Parameters param = cam.getParameters();
-                List<Size> previewSizes =
-                        cam.getParameters().getSupportedPreviewSizes();
-                Size pre = previewSizes.get(0);
-                param.setPreviewSize(pre.width, pre.height);
-
-                LayoutParams lp = new LayoutParams(pre.width, pre.height);
-                sv.setLayoutParams(lp);
-
-                cam.setParameters(param);
-                cam.startPreview();
-            } catch (Exception e) { }
-        }
-        @Override
-        public void surfaceDestroyed(SurfaceHolder holder) {
-            cam.stopPreview();
-            cam.release();
-        }
     }
 }
