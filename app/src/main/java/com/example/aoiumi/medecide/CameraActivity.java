@@ -5,7 +5,6 @@ import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.Size;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -16,8 +15,6 @@ import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.List;
 
 public class CameraActivity extends Activity {
@@ -84,11 +81,13 @@ public class CameraActivity extends Activity {
             cam.release();
         }
     }
-
     class TakePictureClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            cam.takePicture(null, null, new TakePictureCallback());
+            cam.takePicture(new Camera.ShutterCallback() {
+                @Override
+                public void onShutter() {}
+            }, null, new TakePictureCallback());
         }
     }
 
@@ -96,20 +95,16 @@ public class CameraActivity extends Activity {
         @Override
         public void onPictureTaken(byte[] data, Camera camera) {
             try {
-                ImageList imageList= new ImageList(new byte[]{00101});
+                ImageList imageList= new ImageList(data);
                 imageList.save();
-                File dir = new File(
-                        Environment.getExternalStorageDirectory(), "Camera");
-                if(!dir.exists()) {
-                    dir.mkdir();
-                }
-                File f = new File(dir, "img.jpg");
-                FileOutputStream fos = new FileOutputStream(f);
-                fos.write(data);
+
+
                 Toast.makeText(getApplicationContext(),
                         "写真を保存しました", Toast.LENGTH_LONG).show();
-                fos.close();
                 cam.startPreview();
+
+
+
             } catch (Exception e) { }
         }
     }

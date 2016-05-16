@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener{
@@ -17,6 +18,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         cameraBtn.setOnClickListener(this);
 
+        Button MainBackBtn = (Button) findViewById(R.id.menu_back_btn);
+
+        MainBackBtn.setOnClickListener(this);
+
     }
 
     @Override
@@ -28,6 +33,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intentCamera = new Intent(this,CameraActivity.class);
 
                 startActivity(intentCamera);
+                break;
+
+            case R.id.menu_back_btn:
+                Intent intentMain = new Intent(this,MainActivity.class);
+
+                startActivity(intentMain);
                 break;
         }
 

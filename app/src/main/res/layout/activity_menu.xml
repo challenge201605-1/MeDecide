@@ -43,7 +43,11 @@
         android:id="@+id/menu_camera"
         />
 
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/menu_back_btn"
+        android:text="戻る"/>
 
 
 
