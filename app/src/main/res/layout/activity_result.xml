@@ -12,23 +12,30 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="181dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:src="@drawable/code1"
         android:layout_weight="0.86"
-        android:id="@+id/imagefuku"/>
+        android:id="@+id/imagefuku"
+        android:layout_marginBottom="20dp"
+        android:background="#7adadf"/>
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="今日のコーディネート"
-        android:layout_gravity="center_horizontal" />
+        android:text="today's coordinate!"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/result_back_btn"
-        android:text="戻る"
-        android:layout_gravity="center_horizontal" />
+        android:text="back"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#ffffff"
+        android:background="#ce1e1e1e" />
 
 </LinearLayout>

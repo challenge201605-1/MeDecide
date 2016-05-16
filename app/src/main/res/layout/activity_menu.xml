@@ -4,21 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
+    android:gravity="center"
 
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="使い方"
-
-        />
+        android:text="How to use"
+        android:layout_marginBottom="@dimen/title_marginBottom"
+        android:textSize="25dp"
+        android:textColor="#7adadf" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1.迷っているコーディネートを用意してください。"
+        android:text="1.ご自分のコーディネートを用意してください。"
+        android:layout_marginBottom="@dimen/title_marginBottom"
 
         />
 
@@ -26,32 +28,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2.CAMERAで撮影してください。"
-
-
-
+        android:layout_marginBottom="@dimen/title_marginBottom"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3.CLOSETに今日のコーディネートが表示されます。"
-
-
-
+        android:layout_marginBottom="20dp"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⇩　⇩　⇩"
+        android:textSize="25dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="#7adadf" />
 
     <ImageButton
         android:layout_width="199dp"
         android:layout_height="181dp"
         android:src="@drawable/camera"
         android:id="@+id/menu_camera"
+        android:layout_marginBottom="30dp"
+        android:background="#ffffff"
         />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/menu_back_btn"
-        android:text="戻る"/>
+        android:text="back"
+        android:background="#ce1e1e1e"
+        android:textColor="#ffffff" />
 
 
 
