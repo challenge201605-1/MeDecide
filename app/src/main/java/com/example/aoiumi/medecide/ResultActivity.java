@@ -14,6 +14,8 @@ import java.util.List;
 
 public class ResultActivity extends AppCompatActivity implements View.OnClickListener{
 
+    private static final float RATE = 0.3f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +35,8 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         if (bytes != null) {
             // 画像圧縮
             Matrix matrix = new Matrix();
-            float ratio_w = (float) 0.5;
-            float ratio_h = (float) 0.5;
+            float ratio_w = RATE;
+            float ratio_h = RATE;
             matrix.postScale(ratio_w,ratio_h);
             bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
             bmp = Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);

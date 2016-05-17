@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -17,6 +18,9 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton cameraBtn = (ImageButton) findViewById(R.id.menu_camera);
 
         cameraBtn.setOnClickListener(this);
+
+        Button clearBtn = (Button) findViewById(R.id.menu_clear_btn);
+        clearBtn.setOnClickListener(this);
 
         Button MainBackBtn = (Button) findViewById(R.id.menu_back_btn);
 
@@ -33,6 +37,13 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intentCamera = new Intent(this,CameraActivity.class);
 
                 startActivity(intentCamera);
+                break;
+
+            case  R.id.menu_clear_btn:
+                ImageList.deleteAll(ImageList.class);
+                Toast.makeText(getApplicationContext(),
+                        "CLOSETの中身を全て削除しました！", Toast.LENGTH_SHORT).show();
+
                 break;
 
             case R.id.menu_back_btn:

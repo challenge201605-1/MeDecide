@@ -48,12 +48,35 @@
 
     <ImageButton
         android:layout_width="199dp"
-        android:layout_height="181dp"
+        android:layout_height="175dp"
         android:src="@drawable/camera"
         android:id="@+id/menu_camera"
-        android:layout_marginBottom="30dp"
         android:background="#ffffff"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="!カメラは横向きに撮影してください!"
+        android:textSize="10dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="#b6b6b6"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/menu_clear_btn"
+        android:text="all clear"
+        android:background="#af1e1e1e"
+        android:textColor="#ffffff"
+        android:layout_margin="@dimen/title_marginBottom"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -61,8 +84,9 @@
         android:id="@+id/menu_back_btn"
         android:text="back"
         android:background="#ce1e1e1e"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:layout_margin="@dimen/title_marginBottom" />
 
-
+        </LinearLayout>
 
 </LinearLayout>

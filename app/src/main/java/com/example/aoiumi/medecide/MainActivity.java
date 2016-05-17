@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
-import java.util.List;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -21,14 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resultBtn.setOnClickListener(this);
         menuBtn.setOnClickListener(this);
 
-        List<ImageList> imageLists = ImageList.listAll(ImageList.class);
-        int num = imageLists.size();
 
-        if ( num > 0) {
-            resultBtn.setEnabled(true);
-        } else {
-            resultBtn.setEnabled(false);
-        }
     }
 
 
@@ -39,9 +31,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.main_result_btn:
 
-                Intent intentResult = new Intent(this,ResultActivity.class);
+                if (ImageList.isEmptyImageList()) {
 
-                startActivity(intentResult);
+                    Toast.makeText(getApplicationContext(),
+                            "CLOSETの中はからっぽです！", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    Intent intentResult = new Intent(this, ResultActivity.class);
+
+                    startActivity(intentResult);
+                }
                 break;
 
             case  R.id.main_menu_btn:
@@ -53,7 +53,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
-
-
-
 }
