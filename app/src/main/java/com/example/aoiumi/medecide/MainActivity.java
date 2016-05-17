@@ -22,14 +22,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menuBtn.setOnClickListener(this);
 
         List<ImageList> imageLists = ImageList.listAll(ImageList.class);
-        int num = imageLists;
+        int num = imageLists.size();
 
         if ( num > 0) {
-            setEnabled(true);
+            resultBtn.setEnabled(true);
         } else {
-            setEnabled(false);
+            resultBtn.setEnabled(false);
         }
     }
+
+
 
     @Override
     public void onClick(View view) {
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
 
 
 }
