@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -18,6 +20,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         resultBtn.setOnClickListener(this);
         menuBtn.setOnClickListener(this);
+
+        List<ImageList> imageLists = ImageList.listAll(ImageList.class);
+        int num = imageLists;
+
+        if ( num > 0) {
+            setEnabled(true);
+        } else {
+            setEnabled(false);
+        }
     }
 
     @Override
@@ -40,4 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+
 }

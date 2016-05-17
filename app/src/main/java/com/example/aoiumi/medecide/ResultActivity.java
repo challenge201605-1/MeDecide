@@ -3,6 +3,7 @@ package com.example.aoiumi.medecide;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,13 +23,21 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         ResultBackBtn.setOnClickListener(this);
 
         ImageView closet = (ImageView) findViewById(R.id.imagefuku);
+        // 画像一覧から全ての画像を持ってくる。
         List<ImageList> imageLists = ImageList.listAll(ImageList.class);
 
         int num = new java.util.Random().nextInt(imageLists.size());
+
         Bitmap bmp = null;
         byte[] bytes = imageLists.get(num).image_data;
         if (bytes != null) {
+            // 画像圧縮
+            Matrix matrix = new Matrix();
+            float ratio_w = (float) 0.5;
+            float ratio_h = (float) 0.5;
+            matrix.postScale(ratio_w,ratio_h);
             bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+            bmp = Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);
         }
 
         closet.setImageBitmap(bmp);
