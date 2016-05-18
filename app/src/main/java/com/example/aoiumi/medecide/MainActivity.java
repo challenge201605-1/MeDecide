@@ -7,7 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    public static final String RESULT_NUMBER = "ResultNumber";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +23,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         resultBtn.setOnClickListener(this);
         menuBtn.setOnClickListener(this);
+
+        Intent intent = new Intent(this, ResultActivity.class);
+
+        Random random = new Random();
+        int resultNumber = random.nextInt(10);
+
+        intent.putExtra(RESULT_NUMBER, resultNumber);
 
 
     }

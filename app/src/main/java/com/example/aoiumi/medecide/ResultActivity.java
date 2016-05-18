@@ -16,10 +16,14 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
 
     private static final float RATE = 0.3f;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        Intent intent = getIntent();
+        int resultNumber = intent.getIntExtra(MainActivity.RESULT_NUMBER, 0);
 
         Button ResultBackBtn = (Button) findViewById(R.id.result_back_btn);
         ResultBackBtn.setOnClickListener(this);
